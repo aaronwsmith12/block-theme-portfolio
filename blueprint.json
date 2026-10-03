@@ -1,0 +1,8 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "steps": [
+    { "step": "wp-cli", "command": "wp post create --post_type=page --post_status=publish --post_title='Worksheets' --post_content='Worksheets coming soon.'" },
+    { "step": "wp-cli", "command": "wp post create --post_type=page --post_status=publish --post_title='About' --post_content='About page coming soon.'" },
+    { "step": "wp-cli", "command": "wp post create --post_type=page --post_status=publish --post_title='Contact' --post_content='Contact page coming soon.'" }
+  ]
+}
