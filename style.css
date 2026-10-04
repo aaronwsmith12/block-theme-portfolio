@@ -2,3 +2,14 @@
 Theme Name: Block Theme Portfolio
 Version: 1.0.0
 */
+
+/* Header */
+.site-header {
+	padding: 1.25rem 1.5rem;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.site-header__title {
+	font-size: 1.25rem;
+	font-weight: 700;
+}
