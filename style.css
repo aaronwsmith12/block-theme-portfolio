@@ -13,3 +13,51 @@ Version: 1.0.0
 	font-size: 1.25rem;
 	font-weight: 700;
 }
+
+/* Footer */
+.site-footer {
+	padding: 2rem 1.5rem;
+	border-top: 1px solid #e5e7eb;
+}
+
+.site-footer__title {
+	font-weight: 600;
+}
+
+.site-footer__note {
+	font-size: 0.875rem;
+}
+
+/* Worksheets page */
+.worksheets-page {
+	padding: 3rem 1.5rem 4rem;
+}
+
+.worksheets-page__intro {
+	margin-bottom: 2rem;
+	font-size: 1.125rem;
+}
+
+.worksheet-grid {
+	gap: 1.5rem;
+}
+
+.worksheet-card {
+	padding: 1.5rem;
+	border: 1px solid #e5e7eb;
+	border-radius: 0.5rem;
+	background: #ffffff;
+}
+
+.worksheet-card h3 {
+	margin-top: 0;
+}
+
+/* Content pages (About, Contact) */
+.content-page {
+	padding: 3rem 1.5rem 4rem;
+}
+
+.content-page__body {
+	margin-top: 1.5rem;
+}
