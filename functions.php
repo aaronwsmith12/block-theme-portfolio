@@ -19,3 +19,22 @@ function block_theme_portfolio_relative_style( $src, $handle ) {
 	return $src;
 }
 add_filter( 'style_loader_src', 'block_theme_portfolio_relative_style', 10, 2 );
+
+// Register a "Worksheet" content type so worksheets are real entries, not hand-typed cards.
+function block_theme_portfolio_register_worksheets() {
+	register_post_type(
+		'worksheet',
+		array(
+			'labels'       => array(
+				'name'          => 'Worksheets',
+				'singular_name' => 'Worksheet',
+			),
+			'public'       => true,
+			'has_archive'  => false,
+			'show_in_rest' => true,
+			'menu_icon'    => 'dashicons-media-document',
+			'supports'     => array( 'title', 'editor', 'excerpt', 'thumbnail' ),
+		)
+	);
+}
+add_action( 'init', 'block_theme_portfolio_register_worksheets' );
