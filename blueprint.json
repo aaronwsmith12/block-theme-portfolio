@@ -2,28 +2,8 @@
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
   "steps": [
     {
-      "step": "wp-cli",
-      "command": "wp option update blogname 'Printable Worksheets'"
-    },
-    {
-      "step": "wp-cli",
-      "command": "wp option update blogdescription 'Simple, printable worksheets'"
-    },
-    {
-      "step": "wp-cli",
-      "command": "wp post delete 2 --force"
-    },
-    {
-      "step": "wp-cli",
-      "command": "wp post create --post_type=page --post_status=publish --post_title='Worksheets' --post_content='Worksheets coming soon.'"
-    },
-    {
-      "step": "wp-cli",
-      "command": "wp post create --post_type=page --post_status=publish --post_title='About' --post_content='This site is a hand-coded WordPress block theme, built from scratch with a custom template for each page and no page builder. It is a working example of my WordPress development, and the worksheets are the content. The theme code is public on GitHub.'"
-    },
-    {
-      "step": "wp-cli",
-      "command": "wp post create --post_type=page --post_status=publish --post_title='Contact' --post_content='Want to work together or have a question about the code? Reach out through my GitHub profile: <a href=\"https://github.com/aaronwsmith12\">github.com/aaronwsmith12</a>'"
+      "step": "runPHP",
+      "code": "<?php require '/wordpress/wp-content/themes/block-theme-portfolio/playground-setup.php';"
     }
   ]
 }
