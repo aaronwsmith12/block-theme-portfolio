@@ -8,44 +8,29 @@
 	<p class="worksheets-page__intro">Browse the library and print what you need.</p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:group {"className":"worksheet-grid","layout":{"type":"grid","minimumColumnWidth":"16rem"}} -->
-	<div class="wp-block-group worksheet-grid">
+	<!-- wp:query {"queryId":1,"query":{"perPage":12,"pages":0,"offset":0,"postType":"worksheet","order":"asc","orderBy":"title","inherit":false}} -->
+	<div class="wp-block-query">
+
+		<!-- wp:post-template {"className":"worksheet-grid","layout":{"type":"grid","minimumColumnWidth":"16rem"}} -->
 
 		<!-- wp:group {"className":"worksheet-card","layout":{"type":"constrained"}} -->
 		<div class="wp-block-group worksheet-card">
-			<!-- wp:heading {"level":3} -->
-			<h3 class="wp-block-heading">Worksheet title one</h3>
-			<!-- /wp:heading -->
-			<!-- wp:paragraph -->
-			<p>A short description of what this worksheet covers.</p>
-			<!-- /wp:paragraph -->
+			<!-- wp:post-title {"level":3,"isLink":true} /-->
+			<!-- wp:post-excerpt /-->
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:group {"className":"worksheet-card","layout":{"type":"constrained"}} -->
-		<div class="wp-block-group worksheet-card">
-			<!-- wp:heading {"level":3} -->
-			<h3 class="wp-block-heading">Worksheet title two</h3>
-			<!-- /wp:heading -->
-			<!-- wp:paragraph -->
-			<p>A short description of what this worksheet covers.</p>
-			<!-- /wp:paragraph -->
-		</div>
-		<!-- /wp:group -->
+		<!-- /wp:post-template -->
 
-		<!-- wp:group {"className":"worksheet-card","layout":{"type":"constrained"}} -->
-		<div class="wp-block-group worksheet-card">
-			<!-- wp:heading {"level":3} -->
-			<h3 class="wp-block-heading">Worksheet title three</h3>
-			<!-- /wp:heading -->
-			<!-- wp:paragraph -->
-			<p>A short description of what this worksheet covers.</p>
-			<!-- /wp:paragraph -->
-		</div>
-		<!-- /wp:group -->
+		<!-- wp:query-no-results -->
+		<!-- wp:paragraph -->
+		<p>No worksheets yet.</p>
+		<!-- /wp:paragraph -->
+		<!-- /wp:query-no-results -->
 
 	</div>
-	<!-- /wp:group -->
+	<!-- /wp:query -->
+
 </main>
 <!-- /wp:group -->
 
