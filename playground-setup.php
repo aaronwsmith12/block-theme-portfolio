@@ -25,13 +25,26 @@ foreach ( $pages as $title => $content ) {
 }
 
 $worksheets = array(
-	'Addition Practice'     => 'addition-practice.pdf',
-	'Multiplication Facts'  => 'multiplication-facts.pdf',
-	'Sight Word Practice'   => 'sight-word-practice.pdf',
-	'Number Patterns'       => 'number-patterns.pdf',
+	'Addition Practice'    => array(
+		'file'    => 'addition-practice.pdf',
+		'excerpt' => 'Printable addition problems for building speed and accuracy.',
+	),
+	'Multiplication Facts' => array(
+		'file'    => 'multiplication-facts.pdf',
+		'excerpt' => 'Practice multiplication facts with a printable worksheet.',
+	),
+	'Sight Word Practice'  => array(
+		'file'    => 'sight-word-practice.pdf',
+		'excerpt' => 'Printable practice for reading common sight words.',
+	),
+	'Number Patterns'      => array(
+		'file'    => 'number-patterns.pdf',
+		'excerpt' => 'Spot and continue number patterns with this printable worksheet.',
+	),
 );
 
-foreach ( $worksheets as $title => $file ) {
+foreach ( $worksheets as $title => $data ) {
+	$file   = $data['file'];
 	$upload = wp_upload_bits( $file, null, file_get_contents( __DIR__ . '/worksheets/' . $file ) );
 
 	$attachment_id = wp_insert_attachment( array(
@@ -46,10 +59,25 @@ foreach ( $worksheets as $title => $file ) {
 		. '<a href="' . $url . '" class="wp-block-file__button wp-element-button" download>Download</a></div>'
 		. '<!-- /wp:file -->';
 
-	wp_insert_post( array(
+	$post_id = wp_insert_post( array(
 		'post_type'    => 'worksheet',
 		'post_status'  => 'publish',
 		'post_title'   => $title,
 		'post_content' => $content,
+		'post_excerpt' => $data['excerpt'],
 	) );
+
+	$image_file   = str_replace( '.pdf', '.png', $file );
+	$image_upload = wp_upload_bits( $image_file, null, file_get_contents( __DIR__ . '/worksheets/' . $image_file ) );
+
+	$image_id = wp_insert_attachment( array(
+		'post_mime_type' => 'image/png',
+		'post_title'     => $title . ' preview',
+		'post_status'    => 'inherit',
+	), $image_upload['file'], $post_id );
+
+	wp_update_attachment_metadata( $image_id, wp_generate_attachment_metadata( $image_id, $image_upload['file'] ) );
+	set_post_thumbnail( $post_id, $image_id );
 }
+
+flush_rewrite_rules();

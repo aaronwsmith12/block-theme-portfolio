@@ -38,3 +38,12 @@ function block_theme_portfolio_register_worksheets() {
 	);
 }
 add_action( 'init', 'block_theme_portfolio_register_worksheets' );
+
+function block_theme_portfolio_relative_upload_urls( $dirs ) {
+	if ( false !== strpos( home_url(), '127.0.0.1' ) ) {
+		$dirs['url']     = wp_make_link_relative( $dirs['url'] );
+		$dirs['baseurl'] = wp_make_link_relative( $dirs['baseurl'] );
+	}
+	return $dirs;
+}
+add_filter( 'upload_dir', 'block_theme_portfolio_relative_upload_urls' );

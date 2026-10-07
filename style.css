@@ -74,3 +74,10 @@ Version: 1.0.0
 .worksheet-card .wp-block-post-title a:hover {
 	text-decoration: underline;
 }
+
+.worksheet-single .wp-block-post-featured-image img {
+	max-width: 28rem;
+	height: auto;
+	border: 1px solid #e2e5e9;
+	border-radius: 0.5rem;
+}
